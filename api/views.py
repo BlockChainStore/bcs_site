@@ -13,8 +13,8 @@ class ownArea(APIView):
     def post(self, request, format='json'):
         data = {
             'seller_address' : request.data.get('seller_address'),
-            'latitude' : request.data.get('lat'),
-            'longtitude' : request.data.get('lon'),
+            'latitude' : request.data.get('latitude'),
+            'longtitude' : request.data.get('longtitude'),
             'width' : request.data.get('width'),
             'length' : request.data.get('length'),
             'height' : request.data.get('height')
@@ -23,9 +23,9 @@ class ownArea(APIView):
         #return HttpResponse(str(seller_address))
         #return JsonResponse(data)
         
-        if data:
+        if not (data['seller_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 class regisProduct(APIView):
     def get(self, request, format='json'):
@@ -36,9 +36,9 @@ class regisProduct(APIView):
             'seller_address' : request.data.get('seller_address'),
             'p_hash' : request.data.get('p_hash')
         }
-        if data:
+        if not (data['seller_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 class setPrice(APIView):
     def get(self, request, format='json'):
@@ -50,9 +50,9 @@ class setPrice(APIView):
             'p_hash' : request.data.get('p_hash'),
             'price' : request.data.get('price')
         }
-        if data:
+        if not (data['seller_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 class activateProduct(APIView):
     def get(self, request, format='json'):
@@ -63,9 +63,9 @@ class activateProduct(APIView):
             'seller_address' : request.data.get('seller_address'),
             'p_hash' : request.data.get('p_hash')
         }
-        if data:
+        if not (data['seller_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 class deactivateProduct(APIView):
     def get(self, request, format='json'):
@@ -76,9 +76,9 @@ class deactivateProduct(APIView):
             'seller_address' : request.data.get('seller_address'),
             'p_hash' : request.data.get('p_hash')
         }
-        if data:
+        if not (data['seller_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 class buyProduct(APIView):
     def get(self, request, format='json'):
@@ -89,9 +89,9 @@ class buyProduct(APIView):
             'buyer_address' : request.data.get('buyer_address'),
             'p_hash' : request.data.get('p_hash')
         }
-        if data:
+        if not (data['buyer_address'] == None):
             return JsonResponse({"message": True, "Data": data})
-        return JsonResponse({"message":"Input Wrong!!!"})
+        return JsonResponse({"message":"Input Wrong!!!"}, status=400)
 
 
 """
